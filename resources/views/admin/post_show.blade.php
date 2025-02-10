@@ -39,6 +39,12 @@
         <!-- Sidebar Navigation end-->
         <!-- show post section start-->
         <div class="page-content">
+            @if (session()->has('message'))
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                    {{ session()->get('message') }}
+                </div>
+            @endif
             <h1 class="title_deg">All Post</h1>
             <table class="table_deg">
                 <tr class="th_deg">
@@ -48,6 +54,7 @@
                     <th>Post Status</th>
                     <th>User Type</th>
                     <th>Image</th>
+                    <th>Delete</th>
                 </tr>
                 @foreach ($posts as $post)
                     <tr>
@@ -60,6 +67,8 @@
                             <img src="{{ asset('/') }}postimage/{{ $post->image }}" class="img_deg"
                                 alt="image not added" />
                         </td>
+                        <td><a href="{{ route('post.delete', $post->id) }}" class="btn btn-danger"
+                                onclick="return confirm('Are you sure to Delete this ?')">Delete</a></td>
                     </tr>
                 @endforeach
 
