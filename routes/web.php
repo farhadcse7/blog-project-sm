@@ -22,3 +22,4 @@ require __DIR__ . '/auth.php';
 // Admin section routes
 Route::get('/admin/post/index', [AdminController::class, 'index'])->name('post.index');
 Route::post('/admin/post/add', [AdminController::class, 'store'])->name('post.add');
+Route::get('/admin/post/show', [AdminController::class, 'show'])->name('post.show');
