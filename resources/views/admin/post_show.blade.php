@@ -58,6 +58,7 @@
                     <th>User Type</th>
                     <th>Image</th>
                     <th>Delete</th>
+                    <th>Edit</th>
                 </tr>
                 @foreach ($posts as $post)
                     <tr>
@@ -72,6 +73,7 @@
                         </td>
                         <td><a href="{{ route('post.delete', $post->id) }}" class="btn btn-danger"
                                 onclick="confirmation(event)">Delete</a></td>
+                        <td><a href="{{ route('post.edit', $post->id) }}" class="btn btn-success">Edit</a></td>
                     </tr>
                 @endforeach
 
